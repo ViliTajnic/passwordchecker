@@ -7,7 +7,7 @@ Advantage is that password is never sent/passed through the internet for checkin
 
 Next version will have option to use local text file for bulk passwords checking.
 
-To run the password checker you should have at least Python verson 3. It runs on Windows and MACs.\n
+To run the password checker you should have at least Python verson 3. It runs on Windows and MACs.
 
 example of usage:
 > python .\checkmypass.py password1 password2 password3 passwordn (and so)
