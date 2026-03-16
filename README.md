@@ -17,6 +17,35 @@ Version 2.1 is designed for normal terminal users, not just programmers:
 - No external Python packages required
 - Native desktop GUI for users who do not want a terminal
 
+## Get it from GitHub
+
+If you do not have the project on your computer yet, download it like this:
+
+```bash
+cd "$HOME/Applications"
+git clone https://github.com/ViliTajnic/passwordchecker.git passwdchk
+cd passwdchk
+```
+
+This creates the local folder `$HOME/Applications/passwdchk` and connects it to the GitHub repository.
+
+If you prefer to see the username explicitly, `$HOME/Applications/passwdchk` is the same idea as `/Users/<your-username>/Applications/passwdchk` on macOS.
+
+If you already have the folder and just want the newest version:
+
+```bash
+cd "$HOME/Applications/passwdchk"
+git pull origin master
+```
+
+If you want to check whether you have local changes first:
+
+```bash
+git status
+```
+
+If `git status` shows modified files, commit or stash them before running `git pull` to avoid merge conflicts.
+
 ## Requirements
 
 - Python 3
@@ -123,35 +152,6 @@ GitHub Actions output:
 - `passwordchecker-gui-macos`
 - `passwordchecker-cli-windows`
 - `passwordchecker-gui-windows`
-
-## Download the repo for the first time
-
-To create a new local copy from GitHub:
-
-```bash
-cd /Users/vili/Applications
-git clone https://github.com/ViliTajnic/passwordchecker.git passwdchk
-cd passwdchk
-```
-
-This creates the local folder `/Users/vili/Applications/passwdchk` and connects it to the GitHub repository.
-
-## Update your local repo
-
-To download the latest changes from GitHub into this local folder:
-
-```bash
-cd /Users/vili/Applications/passwdchk
-git pull origin master
-```
-
-If you want to check whether you have local changes first:
-
-```bash
-git status
-```
-
-If `git status` shows modified files, commit or stash them before running `git pull` to avoid merge conflicts.
 
 ## Notes
 
