@@ -1,0 +1,43 @@
+name: Build Standalone Executables
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            artifact_name: passwordchecker-macos
+            executable_path: dist/passwordchecker
+          - os: windows-latest
+            artifact_name: passwordchecker-windows
+            executable_path: dist/passwordchecker.exe
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build dependencies
+        run: python -m pip install --upgrade pip -r requirements-build.txt
+
+      - name: Build standalone executable
+        run: python -m PyInstaller --clean passwordchecker.spec
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.executable_path }}
