@@ -13,11 +13,21 @@ jobs:
       matrix:
         include:
           - os: macos-latest
-            artifact_name: passwordchecker-macos
+            spec: passwordchecker_cli.spec
+            artifact_name: passwordchecker-cli-macos
             executable_path: dist/passwordchecker
+          - os: macos-latest
+            spec: passwordchecker_gui.spec
+            artifact_name: passwordchecker-gui-macos
+            executable_path: dist/Password Checker.app
           - os: windows-latest
-            artifact_name: passwordchecker-windows
+            spec: passwordchecker_cli.spec
+            artifact_name: passwordchecker-cli-windows
             executable_path: dist/passwordchecker.exe
+          - os: windows-latest
+            spec: passwordchecker_gui.spec
+            artifact_name: passwordchecker-gui-windows
+            executable_path: dist/passwordchecker-gui.exe
 
     runs-on: ${{ matrix.os }}
 
@@ -34,7 +44,7 @@ jobs:
         run: python -m pip install --upgrade pip -r requirements-build.txt
 
       - name: Build standalone executable
-        run: python -m PyInstaller --clean passwordchecker.spec
+        run: python -m PyInstaller --clean --noconfirm ${{ matrix.spec }}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

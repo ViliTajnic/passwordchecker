@@ -1,4 +1,4 @@
-# PyInstaller spec for building the Password Checker CLI as a standalone binary.
+# PyInstaller spec for the Password Checker command-line executable.
 
 a = Analysis(
     ["checkmypass.py"],

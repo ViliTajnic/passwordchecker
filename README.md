@@ -1,4 +1,4 @@
-# Password Checker v2
+# Password Checker v2.1
 
 Password Checker v2 checks whether a password appears in the Have I Been Pwned password database.
 
@@ -9,12 +9,13 @@ It uses the k-anonymity range API:
 
 ## Why v2 is easier to use
 
-Version 2 is designed for normal terminal users, not just programmers:
+Version 2.1 is designed for normal terminal users, not just programmers:
 - Hidden password entry when you run it without arguments
 - Clearer messages
 - Better error handling
 - Batch checking from a text file
 - No external Python packages required
+- Native desktop GUI for users who do not want a terminal
 
 ## Requirements
 
@@ -74,9 +75,26 @@ Check completed successfully.
 
 If a password is not found, the script will say so, but that does not guarantee the password is strong. A long, unique password is still the right choice.
 
+## Desktop app
+
+The project also includes a native desktop interface built with Tkinter.
+
+Run it from source:
+
+```bash
+python3 passwordchecker_gui.py
+```
+
+Desktop features:
+- Hidden password field
+- One-click single password check
+- File picker for batch checking
+- Plain-language results
+- No password echo in the interface
+
 ## Standalone executables
 
-This repo can now build standalone command-line executables for macOS and Windows.
+This repo builds both the command-line tool and the desktop app for macOS and Windows.
 
 Local macOS build:
 
@@ -86,6 +104,8 @@ Local macOS build:
 
 The executable will be created at `dist/passwordchecker`.
 
+The desktop app will be created at `dist/Password Checker.app`.
+
 Local Windows build:
 
 ```powershell
@@ -94,11 +114,15 @@ Local Windows build:
 
 The executable will be created at `dist\passwordchecker.exe`.
 
+The desktop app will be created at `dist\passwordchecker-gui.exe`.
+
 Windows binaries should be built on Windows, and macOS binaries should be built on macOS. For that reason, the repo also includes a GitHub Actions workflow that builds both platforms automatically on native runners.
 
 GitHub Actions output:
-- `passwordchecker-macos`
-- `passwordchecker-windows`
+- `passwordchecker-cli-macos`
+- `passwordchecker-gui-macos`
+- `passwordchecker-cli-windows`
+- `passwordchecker-gui-windows`
 
 ## Notes
 

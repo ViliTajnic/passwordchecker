@@ -11,7 +11,10 @@ py -m venv $venv
 $env:PIP_CACHE_DIR = Join-Path $cache "pip"
 & "$venv\Scripts\python.exe" -m pip install --upgrade pip -r requirements-build.txt
 $env:PYINSTALLER_CONFIG_DIR = Join-Path $cache "pyinstaller"
-& "$venv\Scripts\pyinstaller.exe" --clean passwordchecker.spec
+& "$venv\Scripts\pyinstaller.exe" --clean --noconfirm passwordchecker_cli.spec
+& "$venv\Scripts\pyinstaller.exe" --clean --noconfirm passwordchecker_gui.spec
 
 Write-Host ""
-Write-Host "Build complete: $root\dist\passwordchecker.exe"
+Write-Host "Build complete:"
+Write-Host "  CLI: $root\dist\passwordchecker.exe"
+Write-Host "  GUI: $root\dist\passwordchecker-gui.exe"
