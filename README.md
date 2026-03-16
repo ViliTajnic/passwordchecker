@@ -124,6 +124,35 @@ GitHub Actions output:
 - `passwordchecker-cli-windows`
 - `passwordchecker-gui-windows`
 
+## Download the repo for the first time
+
+To create a new local copy from GitHub:
+
+```bash
+cd /Users/vili/Applications
+git clone https://github.com/ViliTajnic/passwordchecker.git passwdchk
+cd passwdchk
+```
+
+This creates the local folder `/Users/vili/Applications/passwdchk` and connects it to the GitHub repository.
+
+## Update your local repo
+
+To download the latest changes from GitHub into this local folder:
+
+```bash
+cd /Users/vili/Applications/passwdchk
+git pull origin master
+```
+
+If you want to check whether you have local changes first:
+
+```bash
+git status
+```
+
+If `git status` shows modified files, commit or stash them before running `git pull` to avoid merge conflicts.
+
 ## Notes
 
 - If the API cannot be reached, the script prints a plain-language error message.
